@@ -1,0 +1,35 @@
+# List of Life Sciences terms
+terms = ["photosynthesis", "mitochondria", "chlorophyll", "osmosis", "enzymes", "homeostasis", "genotype", "phenotype", "biodiversity", "ecosystem"]
+
+# Function to scramble a word
+def scramble_word(word):
+    scrambled = list(word)
+    random.shuffle(scrambled)
+    return ''.join(scrambled)
+
+# Function to play the game
+def play_game():
+    print("Welcome to the Life Sciences Puzzle Game!")
+    score = 0
+
+    for i in range(5):
+        # Select a random term and scramble it
+        term = random.choice(terms)
+        scrambled_term = scramble_word(term)
+
+        print(f"\nScrambled word {i + 1}: {scrambled_term}")
+
+        # Get user's guess
+        guess = input("Your guess: ").lower()
+
+        if guess == term:
+            print("Correct!")
+            score += 1
+        else:
+            print(f"Wrong! The correct word was: {term}")
+
+    print(f"\nGame Over! Your final score is {score}/5")
+
+# Start the game
+if __name__ == "__main__":
+    play_game()
